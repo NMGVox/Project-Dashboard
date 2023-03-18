@@ -124,3 +124,32 @@ input[type="search"] {
     margin-left:auto;
     margin-right: 3rem;
 }
+
+.article-area{
+    display:grid;
+    gap: 2rem;
+    grid-template-columns: 2fr 1fr;
+    background-color: cornsilk;
+    height: 75%;
+    padding: 1rem 0; 
+    box-sizing: border-box;
+}
+
+.project-area{
+    grid-row: 1 / span 3;
+    margin-left: 2rem;
+    height:100%;
+}
+
+.project-card-grid{
+    display:grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    height:90%
+}
+
+.project {
+    background-color: aliceblue;
+    border-left: .5rem solid red;
+    border-radius: .5rem;
+}
