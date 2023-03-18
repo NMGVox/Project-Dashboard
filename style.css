@@ -33,6 +33,10 @@ ol, ul {
 	list-style: none;
 }
 
+img {
+    border-radius: 50%;
+}
+
 body {
     display:grid;
     grid-template-columns: minmax(200px, 1fr) 6fr;
@@ -60,4 +64,63 @@ body {
     margin: 1rem 0px;
     font-size: 1.4rem;
     font-weight: bold;
+}
+
+.header{
+    display:flex;
+    align-items: center;
+    height:10%;
+}
+
+.search-icon {
+    height: 1.75rem;
+}
+
+input[type="search"] {
+    width: 50%;
+    height: 1.75rem;
+    margin-left: 1rem;
+    background-color: rgba(216, 216, 216, 0.747);
+    border-radius: 1rem;
+}
+
+.header:first-child{
+    margin-left: 2rem;
+}
+
+
+.header-pfp {
+    height: 1.75rem;
+    width: auto;
+}
+
+.header>ul {
+    font-size: 1.2rem;
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+    margin-right: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomebar {
+    display:flex;
+    gap:1.5rem;
+    align-items: center;
+    height: 15%;
+}
+
+.welcome-pfp{
+    height:4rem;
+    margin-left: 3rem;
+}
+
+.welcome-buttons{
+    display:flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-content: center;
+    margin-left:auto;
+    margin-right: 3rem;
 }
