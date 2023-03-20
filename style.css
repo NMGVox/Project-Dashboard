@@ -15,7 +15,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, object, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -47,7 +47,7 @@ img {
 
 body {
     display:grid;
-    grid-template-columns: minmax(200px, 1fr) 6fr;
+    grid-template-columns: minmax(250px, 1fr) 6fr;
     grid-template-rows: 1fr;
     min-height:100vh;
 }
@@ -75,9 +75,10 @@ path {
     align-items: center;
 }
 
-.dashwrap svg {
-    height: 2rem;
+.dashwrap object {
+    height: 1.8rem;
     width: auto;
+    filter: invert(80%) sepia(31%) saturate(77%) hue-rotate(226deg) brightness(109%) contrast(88%);
 }
 
 .dashwrap>h2 {
@@ -98,6 +99,17 @@ path {
 .side-list-wrapper svg {
     height: 1.4rem;
     width: auto;
+}
+
+.side-list-wrapper a {
+    text-decoration: none;
+    color: white;
+}
+
+.side-list-svg {
+    height: 1.4rem;
+    width: auto;
+    filter: invert(80%) sepia(31%) saturate(77%) hue-rotate(226deg) brightness(109%) contrast(88%);
 }
 
 .header{
@@ -126,7 +138,7 @@ input[type="search"] {
 
 
 .header-pfp {
-    height: 1.75rem;
+    height: 2.5rem;
     width: auto;
 }
 
@@ -138,6 +150,16 @@ input[type="search"] {
     margin-right: 4rem;
     justify-content: center;
     align-items: center;
+}
+
+.notif-bell {
+    height: 1.5rem;
+}
+
+.account-name{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color:black;
 }
 
 .welcomebar {
@@ -154,6 +176,15 @@ input[type="search"] {
     height:4rem;
     margin-left: 3rem;
     box-shadow: 2px 2px 2px var(--shadow-color);
+    box-sizing: border-box;
+    transition: all .2s;
+}
+
+.welcome-pfp:hover{
+    box-shadow: 0px 0px 4px gold;
+    border-color: gold;
+    border-style: solid;
+    border-width: .2rem;
 }
 
 .welcome-buttons{
@@ -217,12 +248,18 @@ button:hover{
     border-radius: .5rem;
     box-sizing: border-box;
     box-shadow: 5px 5px 2px 2px var(--shadow-color);
-    padding: 1rem 1rem;;
+    padding: 2rem 1rem;
+}
+
+.project>h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
 }
 
 .announcement-cards {
     background-color: aliceblue;
-    width:100%;
+    min-width: 200px;
+    max-width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -233,7 +270,8 @@ button:hover{
 }
 
 .announcement-cards>article{
-    width:80%;
+    max-width:80%;
+    min-width: 150px;
 }
 
 .announcement-cards>article:not(:last-child) {
@@ -244,16 +282,20 @@ button:hover{
     display:flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
     align-content: center;
-    padding:1rem 1rem;
+    padding:2rem 1rem;
     background-color: aliceblue;
     box-shadow: 5px 5px 2px 2px var(--shadow-color);
     border-radius: 1rem;
     height:100%;
+    max-width: 60%;
+    min-width: 200px;
 }
 
 .recommended-item {
     display:flex;
     gap: 1rem;
+    flex: 1 0 auto;
 }
 
