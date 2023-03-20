@@ -48,7 +48,6 @@ img {
 body {
     display:grid;
     grid-template-columns: minmax(250px, 1fr) 6fr;
-    grid-template-rows: 1fr;
     min-height:100vh;
 }
 
@@ -57,7 +56,7 @@ path {
 }
 
 .sidebar {
-    position:relative;
+    min-height: 100%;
     z-index: 2;
     background-color: var(--sidebar-color);
     color:white;
@@ -219,7 +218,7 @@ button:hover{
     grid-template-columns: 3fr 1fr;
     background-color: var(--article-area-color);
     min-height: 82%;
-    max-height: auto;
+    max-height: fit-content;
     padding: 1rem 2rem;
     box-sizing: border-box;
     position:relative;
@@ -276,6 +275,16 @@ button:hover{
 
 .announcement-cards>article:not(:last-child) {
     border-bottom: 1px solid grey; 
+    padding-bottom: .5rem;
+}
+
+.announcement-cards>article:not(:first-child) {
+    padding-top: .5rem;
+}
+
+.announcement-title {
+    font-size: 1rem;
+    margin-bottom: .5rem;
 }
 
 .recommended-container {
