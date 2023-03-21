@@ -133,6 +133,7 @@ path {
     box-sizing: border-box;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    padding: 1rem 0;
 }
 
 .search-icon {
