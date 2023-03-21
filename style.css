@@ -3,6 +3,11 @@
    License: none (public domain)
 */
 
+@font-face {
+    font-family: Seb-Neue;
+    src: url(./Fonts/SebneueBold-PwMm.otf);
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -38,17 +43,22 @@ img {
 }
 
 :root {
-    --sidebar-color: #8359ac;
-    --secondary-color: #e6deee;
-    --article-area-color: #e2e0e2;
-    --shadow-color: rgba(0, 0, 0, 0.438);
+    --sidebar-color: #064e3b;
+    --secondary-color: #d1fae5;
+    --article-area-color: #bbf7d0;
+    --shadow-color: rgba(0, 56, 16, 0.795);
     --button-color: #a95252;
+    --border-color: #f97316;
+    --pop-color: #166534;
+    max-height:100vh;
 }
 
 body {
     display:grid;
     grid-template-columns: minmax(250px, 1fr) 6fr;
-    min-height:100vh;
+    
+    background-color: #15803d;
+    font-family: Seb-Neue, 'Arial Narrow Bold', sans-serif;
 }
 
 path {
@@ -57,7 +67,7 @@ path {
 
 .sidebar {
     min-height: 100%;
-    z-index: 2;
+    z-index: 3;
     background-color: var(--sidebar-color);
     color:white;
     display:flex;
@@ -77,7 +87,7 @@ path {
 .dashwrap object {
     height: 1.8rem;
     width: auto;
-    filter: invert(80%) sepia(31%) saturate(77%) hue-rotate(226deg) brightness(109%) contrast(88%);
+    filter: invert(95%) sepia(3%) saturate(1655%) hue-rotate(88deg) brightness(102%) contrast(96%);
 }
 
 .dashwrap>h2 {
@@ -108,13 +118,21 @@ path {
 .side-list-svg {
     height: 1.4rem;
     width: auto;
-    filter: invert(80%) sepia(31%) saturate(77%) hue-rotate(226deg) brightness(109%) contrast(88%);
+    filter: invert(95%) sepia(3%) saturate(1655%) hue-rotate(88deg) brightness(102%) contrast(96%);
+}
+.main-area{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .5fr 1fr 8fr;
 }
 
 .header{
     display:flex;
     align-items: center;
-    height:8%;
+    background-color: var(--sidebar-color);
+    box-sizing: border-box;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 .search-icon {
@@ -125,14 +143,14 @@ input[type="search"] {
     width: 50%;
     height: 1.75rem;
     margin-left: 1rem;
-    background-color: rgba(216, 216, 216, 0.747);
+    background-color: var(--secondary-color);
     border-radius: 1rem;
     padding: 0 .7rem;
     border-style: solid;
 }
 
 .header:first-child{
-    margin-left: 2rem;
+    padding-left: 2rem;
 }
 
 
@@ -153,22 +171,25 @@ input[type="search"] {
 
 .notif-bell {
     height: 1.5rem;
+    filter: invert(95%) sepia(3%) saturate(1655%) hue-rotate(88deg) brightness(102%) contrast(96%);
 }
 
 .account-name{
     font-size: 1.4rem;
     text-decoration: none;
-    color:black;
+    color:var(--secondary-color);
 }
 
 .welcomebar {
     position:relative;
+    box-sizing: border-box;
     display:flex;
     gap:1.5rem;
     align-items: center;
-    height: 10%;
     box-shadow: 0px 6px 3px 3px var(--shadow-color);
-    z-index: 1;
+    z-index: 2;
+    background-color: #15803d;
+    color: var(--secondary-color)
 }
 
 .welcome-pfp{
@@ -180,8 +201,8 @@ input[type="search"] {
 }
 
 .welcome-pfp:hover{
-    box-shadow: 0px 0px 4px gold;
-    border-color: gold;
+    box-shadow: 0px 0px 4px 5px var(--sidebar-color);
+    border-color: var(--sidebar-color);
     border-style: solid;
     border-width: .2rem;
 }
@@ -201,7 +222,7 @@ button {
     padding: .5rem 1.5rem;
     border-style: solid;
     border-radius: 2rem;
-    border-color: #9c7bbd;
+    border-color: #047857;
     background-color: var(--sidebar-color);
     color: white;
     box-shadow: 2px  2px 3px var(--shadow-color);
@@ -212,38 +233,42 @@ button:hover{
 }
 
 .article-area{
-    z-index:-1;
+    z-index:1;
     display:grid;
     gap: 2rem;
     grid-template-columns: 3fr 1fr;
     background-color: var(--article-area-color);
-    min-height: 82%;
-    max-height: fit-content;
     padding: 1rem 2rem;
     box-sizing: border-box;
     position:relative;
 }
 
+.article-area h2 {
+    margin-bottom: .8rem;
+    color: var(--pop-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
 .project-area{
     grid-row: 1 / span 3;
     margin-left: 2rem;
-    height:100%;
-}
-
-.article-area h2 {
-    margin-bottom: .8rem;
+    max-height:max-content;
 }
 
 .project-card-grid{
     display:grid;
     gap: 1rem;
     grid-template-columns: repeat(2, 1fr);
-    height:90%
+    grid-auto-rows: minmax(1fr, 175px);
+    height: max-content;
 }
 
 .project {
     background-color: aliceblue;
-    border-left: .5rem solid red;
+    background-image: none;
+    border-left: .5rem solid var(--border-color);
     border-radius: .5rem;
     box-sizing: border-box;
     box-shadow: 5px 5px 2px 2px var(--shadow-color);
@@ -253,6 +278,10 @@ button:hover{
 .project>h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
+}
+
+.announcements {
+    height: max-content;
 }
 
 .announcement-cards {
@@ -271,6 +300,7 @@ button:hover{
 .announcement-cards>article{
     max-width:80%;
     min-width: 150px;
+    padding: 1rem 0;
 }
 
 .announcement-cards>article:not(:last-child) {
@@ -287,13 +317,18 @@ button:hover{
     margin-bottom: .5rem;
 }
 
+.recommended-items{
+    height: max-content;
+}
+
 .recommended-container {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     align-content: center;
-    padding:2rem 1rem;
+    padding:1rem 1rem;
     background-color: aliceblue;
     box-shadow: 5px 5px 2px 2px var(--shadow-color);
     border-radius: 1rem;
@@ -306,5 +341,51 @@ button:hover{
     display:flex;
     gap: 1rem;
     flex: 1 0 auto;
+    padding: 1rem 0;
 }
 
+.rec-icon{
+    display:flex;
+    width:2.5rem;
+    height:auto;
+    border-radius: 3rem;
+    background-color: white;
+}
+
+.recommended-item>div {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.announcement-cards p,
+.recommended-item>div>p {
+    font-family: 'Arial Narrow Bold', system-ui, sans-serif;
+    font-size: .8rem;
+}
+
+/* @media only screen and (max-width: 1680px){
+    body{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .project-card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 966px){
+    .article-area{
+        grid-template-columns: 1fr 1fr;
+        max-height: 100%;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .project-area{
+        grid-column: 1 / -1;
+    }
+} */
