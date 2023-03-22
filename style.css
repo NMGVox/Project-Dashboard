@@ -103,10 +103,6 @@ path {
     font-size: 1.4rem;
     font-weight: bold;
 }
-.side-list-wrapper svg {
-    height: 1.4rem;
-    width: auto;
-}
 
 .side-list-wrapper a {
     text-decoration: none;
@@ -272,6 +268,7 @@ button:hover{
 }
 
 .project {
+    position:relative;
     background-color: aliceblue;
     background-image: none;
     border-left: .5rem solid var(--border-color);
@@ -286,7 +283,7 @@ button:hover{
 }
 
 .project-description {
-    height: 60%;
+    height: min(60%, 200px);
     overflow-y: auto;
     box-sizing: border-box;
 }
@@ -294,6 +291,24 @@ button:hover{
 .project>h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
+}
+
+.proj-buttons {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    width: 90%;
+    justify-content: right;
+    padding-top: .5rem;
+}
+
+.proj-buttons object{
+    height: 1.4rem;
+    filter: invert(22%) sepia(10%) saturate(5070%) hue-rotate(122deg) brightness(95%) contrast(95%);
+}
+
+.proj-buttons object:hover{
+    filter: invert(42%) sepia(87%) saturate(963%) hue-rotate(352deg) brightness(104%) contrast(95%);
 }
 
 .announcements {
@@ -393,6 +408,11 @@ button:hover{
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
+    .proj-buttons {
+        width: 80%;
+        padding-top: 2rem;
+    }
+
 }
 
 @media only screen and (max-width: 966px){
@@ -416,5 +436,9 @@ button:hover{
 
     .notif-bell{
         height:1rem;
+    }
+    .proj-buttons {
+        width: 70%;
+        padding-top: 2rem;
     }
 }
