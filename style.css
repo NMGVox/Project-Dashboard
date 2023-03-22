@@ -55,7 +55,7 @@ img {
 body {
     display:grid;
     grid-template-columns: minmax(250px, 1fr) 6fr;
-    grid-template-rows: 100vh;
+    grid-auto-rows: 1fr;
     background-color: #15803d;
     font-family: Seb-Neue, 'Arial Narrow Bold', sans-serif;
 }
@@ -65,7 +65,6 @@ path {
 }
 
 .sidebar {
-    min-height: 100vh;
     z-index: 3;
     background-color: var(--sidebar-color);
     color:white;
@@ -122,8 +121,10 @@ path {
 
 .main-area{
     display: grid;
+    height: 100vh;
     grid-template-columns: 1fr;
-    grid-template-rows: .7fr 1fr 6fr;
+    grid-template-rows: minmax(.5fr, 100px) minmax(1fr, 150px) minmax(600px, fit-content);
+    overflow-y: auto;
 }
 
 .header{
@@ -185,13 +186,13 @@ input[type="search"] {
     position:relative;
     box-sizing: border-box;
     display:flex;
-    gap:1.5rem;
+    gap: 1.5rem;
     align-items: center;
     box-shadow: 0px 6px 3px 3px var(--shadow-color);
     z-index: 2;
     background-color: #15803d;
     color: var(--secondary-color);
-    padding: 1rem 0rem;
+    padding: .6rem 0rem;
 }
 
 .welcome-pfp{
@@ -199,7 +200,7 @@ input[type="search"] {
     margin-left: 3rem;
     box-shadow: 2px 2px 2px var(--shadow-color);
     box-sizing: border-box;
-    transition: all .2s;
+    transition: all .2s ease-in-out;
 }
 
 .welcome-pfp:hover{
@@ -237,10 +238,13 @@ button:hover{
 .article-area{
     z-index:1;
     display:grid;
+    height: fit-content;
     gap: 2rem;
     grid-template-columns: 3fr 1fr;
     background-color: var(--article-area-color);
-    padding: 1rem 2rem;
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 0;
     box-sizing: border-box;
     position: relative;
 }
@@ -275,6 +279,16 @@ button:hover{
     box-sizing: border-box;
     box-shadow: 5px 5px 2px 2px var(--shadow-color);
     padding: 2rem 1rem;
+    transition: all .5s ease-in;
+}
+.project:hover {
+    border-left: 1rem solid var(--border-color);
+}
+
+.project-description {
+    height: 60%;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .project>h3 {
@@ -334,7 +348,7 @@ button:hover{
     background-color: aliceblue;
     box-shadow: 5px 5px 2px 2px var(--shadow-color);
     border-radius: 1rem;
-    height:100%;
+    height:80%;
     max-width: 60%;
     min-width: 200px;
 }
@@ -366,7 +380,7 @@ button:hover{
     font-size: .8rem;
 }
 
-@media only screen and (max-width: 1680px){
+@media only screen and (max-width: 1440px){
     body{
         grid-template-columns:1fr;
     }
